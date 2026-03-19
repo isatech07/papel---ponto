@@ -1,65 +1,61 @@
-import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import localFont from "next/font/local";
+import type { Metadata } from 'next';
+import { Audiowide, Golos_Text } from 'next/font/google';
+import localFont from 'next/font/local';
+import './globals.css';
 import NavBar from '@/components/NavBar/NavBar';
-import "./globals.css";
 
-const poppins = Poppins({
-  weight: "400",
-  variable: "--font-poppins",
-  subsets: ["latin"],
+const audiowide = Audiowide({
+  weight: '400',
+  variable: '--font-audiowide',
+  subsets: ['latin'],
 });
 
-const geom = localFont({
+const golostext = Golos_Text({
+  weight: '400',
+  variable: '--font-golos-text',
+  subsets: ['latin'],
+});
+
+const lufga = localFont({
   src: [
     {
-      path:'../../public/Geom/static/Geom-Regular.ttf',
+      path: '../../public/Lufga/Fontspring-DEMO-lufga-regular.otf',
       weight: '400',
       style: 'normal',
     },
+
     {
-      path:'../../public/Geom/static/Geom-Medium.ttf',
+      path: '../../public/Lufga/Fontspring-DEMO-lufga-medium.otf',
       weight: '500',
       style: 'normal',
     },
+
     {
-      path:'../../public/Geom/static/Geom-Bold.ttf',
+      path: '../../public/Lufga/Fontspring-DEMO-lufga-bold.otf',
       weight: '700',
       style: 'normal',
-    }
+    },
   ],
-  variable: '--font-geom',
-})
-
-const dashing = localFont({
-  src: [
-    {
-      path:'../../public/dashing/Dashing-PersonalUse.otf',
-      weight: '400',
-      style: 'normal',
-    }
-  ],
-  variable: '--font-dashing',
-})
+  variable: '--font-lufga',
+});
 
 export const metadata: Metadata = {
-  title: "Papel & Ponto",
-  description: "Loja de papelaria e material de escritório",
+  title: 'Marichique',
+  description: 'Loja de roupas femininas, masculinas e infantis',
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="pt-br">
-      <body className={`${poppins.variable} ${geom.variable} ${dashing.variable}`}>
-        
+    <html lang='en'>
+      <body
+        className={`${audiowide.variable} ${golostext.variable} ${lufga.variable}`}
+      >
         <NavBar />
-
         {children}
-
       </body>
     </html>
   );

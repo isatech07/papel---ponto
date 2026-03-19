@@ -1,45 +1,55 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@import "bootstrap-icons/font/bootstrap-icons";
+@import 'bootstrap-icons/font/bootstrap-icons.css';
 @import 'remixicon/fonts/remixicon.css';
 
-:root{
-  --brand-primary: #6C63FF;
-  --brand-secondary: #FF7AA2;
-  --brand-highlight: #FFB84D;
-  --brand-support: #5EC2F2;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-  --background-main: #F8F9FB;
-  --background-card: #FFFFFF;
-  --text-primary: #2D2D2D;
+:root {
+  /* CORES */
+  --prim: #e0f2fe;
+  --prim-light: #f8fafc;
+  --second: #e14d91;
+  --white: #fff;
+  --black: #0f172a;
 
-  --gradient-brand: linear-gradient(135deg, #6C63FF, #FF7AA2);
-  --gradient-vibrant: linear-gradient(135deg, #5EC2F2, #6C63FF);
-  --gradient-accent: linear-gradient(135deg, #FFB84D, #FF7AA2);
+  /* GRADIENTE */
+  --gradient: linear-gradient(90deg, #f9a8d4 0%, #fb923c 100%);
 
-  --Geom: var(--font-geom);
-  --Poppins: 'Poppins', sans-serif;
-  --Dashing: var(--font-dashing);
+  /* FONTS */
+  --GolosText: 'Golos Text', sans-serif;
+  --Audiowide: 'Audiowide', sans-serif;
+  --Lufga: 'Lufga', sans-serif;
 
+  /* TRANSITION */
   --transition-regular: 0.3s;
   --transition-slow: 0.6s;
 }
 
-.Geom{
-  font-family: var(--Geom);
-}
+/* === BASE === */
 
-.Poppins{
-  font-family: var(--Poppins);
-}
-
-.Dashing{
-  font-family: var(--dashing);
-}
-
-body{
-  background-color: var(--background-main);
+html,
+body {
+  width: 100%;
   overflow-x: hidden;
+}
+
+body {
+  background-color: #fffaf3;
+  font-family: var(--Lufga);
+  color: var(--black);
+}
+
+/* === CLASSES DE FONTE === */
+
+.font-golos {
+  font-family: var(--GolosText);
+}
+
+.font-autowide {
+  font-family: var(--Audiowide);
+}
+
+.font-lufga {
+  font-family: var(--Lufga);
 }
