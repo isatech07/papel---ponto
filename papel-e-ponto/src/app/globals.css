@@ -6,50 +6,147 @@
 @import 'tailwindcss/utilities';
 
 :root {
-  /* CORES */
-  --prim: #e0f2fe;
-  --prim-light: #f8fafc;
-  --second: #e14d91;
-  --white: #fff;
-  --black: #0f172a;
-
+  /* CORES — Papel & Ponto */
+  --prim: #fff8f0;          
+  --prim-light: #fef3e2;    
+  --second: #e63946;        
+  --accent: #ffd166;        
+  --accent-dark: #f4a261;   
+  --navy: #14213d;          
+  --navy-light: #1e2f57;  
+  --white: #ffffff;
+  --black: #14213d;         
+  --gray-soft: #8a94a6;
+ 
   /* GRADIENTE */
-  --gradient: linear-gradient(90deg, #f9a8d4 0%, #fb923c 100%);
-
+  --gradient: linear-gradient(135deg, #e63946 0%, #f4a261 100%);
+  --gradient-warm: linear-gradient(135deg, #ffd166 0%, #f4a261 100%);
+ 
   /* FONTS */
   --GolosText: 'Golos Text', sans-serif;
   --Audiowide: 'Audiowide', sans-serif;
   --Lufga: 'Lufga', sans-serif;
-
+ 
   /* TRANSITION */
-  --transition-regular: 0.3s;
-  --transition-slow: 0.6s;
+  --transition-regular: 0.25s;
+  --transition-slow: 0.5s;
 }
-
+ 
 /* === BASE === */
-
+ 
 html,
 body {
   width: 100%;
   overflow-x: hidden;
 }
-
+ 
 body {
-  background-color: #fffaf3;
+  background-color: var(--prim);
   font-family: var(--Lufga);
   color: var(--black);
 }
-
+ 
 /* === CLASSES DE FONTE === */
-
-.font-golos {
-  font-family: var(--GolosText);
+ 
+@layer utilities {
+  .font-golos {
+    font-family: var(--GolosText);
+  }
+ 
+  .font-audiowide {
+    font-family: var(--Audiowide);
+  }
+ 
+  .font-lufga {
+    font-family: var(--Lufga);
+  }
+}
+ 
+/* === COMPONENTES NAV === */
+ 
+@layer components {
+  .nav-fixed-shadow {
+    box-shadow: 0 4px 24px rgba(20, 33, 61, 0.13);
+  }
+ 
+  .search-ring:focus-within {
+    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.18);
+  }
 }
 
-.font-autowide {
-  font-family: var(--Audiowide);
-}
+ @layer components {
 
-.font-lufga {
-  font-family: var(--Lufga);
+  .GolosText {
+    font-family: var(--GolosText);
+  }
+
+  .hero-shape3 {
+    position: absolute;
+    top: -40px;
+    left: -60px;
+    width: 280px !important;
+    height: auto !important;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-shape4 {
+    position: absolute;
+    bottom: -30px;
+    right: -50px;
+    width: 220px !important;
+    height: auto !important;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-content {
+    animation: heroFadeIn 0.7s ease both;
+  }
+
+  @keyframes heroFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-shape1 {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 88%;
+    height: 88%;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.22;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero-shape2 {
+    position: absolute;
+    top: 8%;
+    right: 4%;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--second);
+    opacity: 0.18;
+    z-index: 1;
+    pointer-events: none;
+  }
 }
